@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fafafa;
+}
+
+.container {
+    display: flex;
+    max-width: 935px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.phone-section {
+    flex: 1;
+    max-width: 454px;
+    margin-right: 32px;
+}
+
+.phone-image {
+    width: 100%;
+}
+
+.form-section {
+    flex: 1;
+    max-width: 350px;
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    border-radius: 1px;
+    padding: 40px 40px 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 175px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: none; /* Hidden but present for accessibility */
+}
+
+input {
+    height: 38px;
+    margin-bottom: 6px;
+    padding: 9px 0 7px 8px;
+    background: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.login-button {
+    background: #0095f6;
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 16px;
+    margin: 8px 0 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: #737373;
+    font-size: 13px;
+    margin: 10px 0 18px;
+}
+
+.separator::before, .separator::after {
+    content: '';
+    flex-grow: 1;
+    background: #dbdbdb;
+    height: 1px;
+    margin: 0 16px;
+}
+
+.facebook-login {
+    color: #385185;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.forgot-link {
+    color: #00376b;
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.signup {
+    font-size: 14px;
+    color: #262626;
+    margin-top: 12px;
+}
+
+.signup a {
+    color: #0095f6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 875px) {
+    .phone-section {
+        display: none;
+    }
+
+    .container {
+        justify-content: center;
+    }
+}
