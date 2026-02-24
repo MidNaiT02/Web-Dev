@@ -1,0 +1,11 @@
+<div *ngIf="products.length === 0" class="empty-msg">
+  <span>🗑️</span> No products in this category.
+</div>
+
+<div *ngIf="products.length > 0" class="product-grid">
+  <app-product-item
+    *ngFor="let product of products"
+    [product]="product"
+    (deleteProduct)="onDelete($event)">
+  </app-product-item>
+</div>
