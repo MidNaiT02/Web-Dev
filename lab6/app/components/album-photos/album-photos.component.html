@@ -1,0 +1,49 @@
+<div class="photos-page">
+
+  <button class="btn-back" (click)="goBack()">← Back to Album</button>
+
+  <div class="photos-header">
+    <h1>🖼️ Photos — Album #{{ albumId }}</h1>
+    <span *ngIf="!loading" class="photos-count">
+      {{ allPhotos.length }} photos · Page {{ currentPage }} of {{ totalPages }}
+    </span>
+  </div>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading photos...</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error && !loading" class="error-msg">⚠️ {{ error }}</div>
+
+  <!-- Photo grid -->
+  <div *ngIf="!loading && !error" class="photos-grid">
+    <div *ngFor="let photo of visiblePhotos" class="photo-card">
+      <img
+        [src]="photo.thumbnailUrl"
+        [alt]="photo.title"
+        loading="lazy" />
+      <p class="photo-title">{{ photo.title }}</p>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div *ngIf="!loading && !error && totalPages > 1" class="pagination">
+    <button class="page-btn" (click)="goToPage(1)" [disabled]="currentPage === 1">«</button>
+    <button class="page-btn" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">‹</button>
+
+    <button
+      *ngFor="let p of pages"
+      class="page-btn"
+      [class.active]="p === currentPage"
+      (click)="goToPage(p)">
+      {{ p }}
+    </button>
+
+    <button class="page-btn" (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">›</button>
+    <button class="page-btn" (click)="goToPage(totalPages)" [disabled]="currentPage === totalPages">»</button>
+  </div>
+
+</div>

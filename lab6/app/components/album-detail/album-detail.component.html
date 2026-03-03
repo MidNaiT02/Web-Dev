@@ -1,0 +1,54 @@
+<div class="detail-page">
+
+  <button class="btn-back" (click)="goBack()">← Back to Albums</button>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div>
+    <p>Loading album...</p>
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error && !loading" class="error-msg">
+    ⚠️ {{ error }}
+    <br><br>
+    <button class="btn-back" (click)="ngOnInit()">🔄 Retry</button>
+  </div>
+
+  <!-- Detail card -->
+  <div *ngIf="!loading && !error && album" class="detail-card">
+
+    <div class="detail-meta">
+      <span class="badge">Album #{{ album.id }}</span>
+      <span class="badge">User ID: {{ album.userId }}</span>
+    </div>
+
+    <div class="edit-group">
+      <label for="albumTitle">Album Title</label>
+      <input
+        id="albumTitle"
+        [(ngModel)]="album.title"
+        class="title-input"
+        placeholder="Enter album title" />
+    </div>
+
+    <div class="detail-actions">
+      <button class="btn-save" (click)="save()" [disabled]="saving">
+        {{ saving ? 'Saving...' : saved ? '✅ Saved!' : '💾 Save Changes' }}
+      </button>
+      <button class="btn-photos" (click)="viewPhotos()">
+        🖼️ View Photos
+      </button>
+    </div>
+
+  </div>
+</div>
+```
+
+---
+
+## 🔍 After saving, open browser Console (`F12`)
+
+Look for the log line:
+```
+Album ID from route: 1
